@@ -41,6 +41,28 @@ $please enter your subdomain:YOUR_SUBDOMAIN_NAME
 $please enter your login email:YOUR_EMAIL_ID
 $please enter your API token:YOU_CAN_COPY_PASTE_YOUR_TOKEN
 
+if valid credentials you will login successfully into zendesk ticket viewer
+
+
+Please enter your choice:
+1. List all my tickets
+2. Display details for a ticket id
+3. Exit Ticket Viewer
+
+For choice 1
+
+*****There are a total of n tickets in your account*****
+ and the tickets in your account will be displayed with 25 tickets per page.
+ 
+For choice 2
+Please enter the Ticket ID:ENTER_VALID_TICKET_ID
+
+The details of the ticket with ID provided will be displayed!
+
+For choice 3
+
+Exit successfully.
+
 
 
 
