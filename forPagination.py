@@ -14,7 +14,7 @@ def pagination_zendesk(b_url,user,pwd):
     if response.status_code >= 500:
         print('status:',response.status_code,'Server temporarily unavailable,Please try again later!')
         return()
-    elif response.status_code = 400 or response.status_code = 404:
+    elif response.status_code == 400 or response.status_code == 404:
         print('status:',response.status_code,'Record not found')
         return()
 
@@ -45,7 +45,7 @@ def pagination_zendesk(b_url,user,pwd):
             if response.status_code >= 500:
                 print('status:',response.status_code,'Server temporarily unavailable,Please try again later!')
                 return()
-            elif response.status_code = 400 or response.status_code = 404:
+            elif response.status_code == 400 or response.status_code == 404:
                 print('status:',response.status_code,'Record not found')
                 return()
             data = response.json()
