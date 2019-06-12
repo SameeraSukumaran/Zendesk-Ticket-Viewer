@@ -38,7 +38,7 @@ def pagination_zendesk(b_url,user,pwd):
         n = n+1
         print('----------------------------------------[Page '+str(n)+']--------------------------------------------------')
         print('\n')
-        ans = input('Do you want to view the next page?')
+        ans = input('Do you want to view the next page? Please enter Y or N ')
         if ans.upper() == 'Y':
             url = data['next_page'] + 'sort_by=created_at'
             response = requests.get(url, auth=(user,pwd))
@@ -51,8 +51,11 @@ def pagination_zendesk(b_url,user,pwd):
             data = response.json()
             for tkts in data['tickets']:
                 print(tkts['id'],'	|	',tkts['created_at'],'	|	',tkts['status'],'	|	',tkts['subject'])
-        if ans.upper() == 'N':
+        elif ans.upper() == 'N':
             print('Cheers lets exit then!')
+            return()
+        else:
+            print('Invalid input! Please enter Y or N')
             return()
     if((f>25) and (f%25==0)):
         k = (f//25)
