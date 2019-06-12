@@ -1,12 +1,11 @@
 import requests
-import getpass
 
+#function for authenticating the user
 def login_zendesk(b_url,user,pwd):
 
     print('\n')
     print('                 ** Signing into Zendesk **                  ')
     print('\n')
-
 
     url = b_url+'users.json'
 

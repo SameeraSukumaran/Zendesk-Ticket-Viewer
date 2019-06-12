@@ -1,16 +1,11 @@
 import requests
-
+#Function for displaying the tickets list with pagination of 25 tickets per view
 def pagination_zendesk(b_url,user,pwd):
-    #defining request parameters
-
-    '''
-    url = 'https://stardustsupport.zendesk.com/api/v2/tickets.json?per_page=25&sort_by=created_at'
-    user = 'sam.era272@gmail.com'
-    pwd = 'IntSam@2019'
-    '''
 
     url = b_url + 'tickets.json?per_page=25&sort_by=created_at'
     response = requests.get(url, auth=(user,pwd))
+
+    #handling of error response codes
     if response.status_code >= 500:
         print('status:',response.status_code,'Server temporarily unavailable,Please try again later!')
         return()
@@ -18,8 +13,10 @@ def pagination_zendesk(b_url,user,pwd):
         print('status:',response.status_code,'Record not found')
         return()
 
-    #while url:
+    #obtaining the response into data
     data = response.json()
+
+    #saving the ticket count in f
     f=data['count']
     print('\n')
     print('*****There are a total of '+str(f)+' tickets in your account*****')
@@ -28,11 +25,10 @@ def pagination_zendesk(b_url,user,pwd):
     print('Id	|	   created_at	        |	 status	|	Ticket Summary')
     print('---------------------------------------------------------------------------------------------')
 
+    #for the first pagination
     if data['previous_page'] is None:
         for tkts in data['tickets']:
             print(tkts['id'],'	|	',tkts['created_at'],'	|	',tkts['status'],'	|	',tkts['subject'])
-
-    #print('----------------Page 1-----------------')
     n = 0
     while data['next_page'] is not None:
         n = n+1
@@ -57,11 +53,14 @@ def pagination_zendesk(b_url,user,pwd):
         else:
             print('Invalid input! Please enter Y or N')
             return()
+
+    #for ticket count being greater that 25 and multiple of 25
     if((f>25) and (f%25==0)):
         k = (f//25)
         print('----------------------------------------[Page '+str(k)+']--------------------------------------------------')
         print('\n')
         print('****************************************[End of tickets]***************************************************')
+    #for ticket count not multiple of 25    
     else:
         k = (f//25)+1
         print('----------------------------------------[Page '+str(k)+']--------------------------------------------------')

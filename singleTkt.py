@@ -1,13 +1,7 @@
 import requests
 
+#function for displying single ticket
 def singleView(b_url,user,pwd,id):
-
-    '''
-    #defining request parameters
-    url = 'https://stardustsupport.zendesk.com/api/v2/tickets/'+str(id)+'.json'
-    user = 'sam.era272@gmail.com'
-    pwd = 'IntSam@2019'
-    '''
 
     url = b_url + 'tickets/'+str(id)+'.json'
 
@@ -23,9 +17,7 @@ def singleView(b_url,user,pwd,id):
         return()
 
     # fetching ticket data
-
     data = response.json()
-    #print('Id = ' + str(data['ticket']['id']))
     print(
     'TICKET_ID = ',data['ticket']['id'],'\n',
     'CREATED_AT = ',data['ticket']['created_at'],'\n',
