@@ -42,8 +42,11 @@ Save all the files[login.py,singleTkt.py,forPagination.py and ticketViewerWrappe
 # Testing 
 
 $python3 ticketViewerWrapper.py
+
 $please enter your subdomain:YOUR_SUBDOMAIN_NAME
+
 $please enter your login email:YOUR_EMAIL_ID
+
 $please enter your API token:YOU_CAN_COPY_PASTE_YOUR_TOKEN
 
 if valid credentials you will login successfully into zendesk ticket viewer
