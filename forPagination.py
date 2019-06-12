@@ -11,12 +11,12 @@ def pagination_zendesk(b_url,user,pwd):
 
     url = b_url + 'tickets.json?per_page=25&sort_by=created_at'
     response = requests.get(url, auth=(user,pwd))
-        if response.status_code >= 500:
-            print('status:',response.status_code,'Server temporarily unavailable,Please try again later!')
-            return()
-        elif response.status_code = 400 or response.status_code = 404:
-            print('status:',response.status_code,'Record not found')
-            return()
+    if response.status_code >= 500:
+        print('status:',response.status_code,'Server temporarily unavailable,Please try again later!')
+        return()
+    elif response.status_code = 400 or response.status_code = 404:
+        print('status:',response.status_code,'Record not found')
+        return()
 
     #while url:
     data = response.json()
