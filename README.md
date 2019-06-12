@@ -10,7 +10,12 @@ Zendesk-Ticket-Viewer is a CLI ticket viewer which has the following functionali
 
 # Prerequisites:
 
-Make sure you have zendesk account.
+Please make sure you have zendesk account.
+
+Please make sure you have tickets in your account.If not please use the below link via postman get with basic auth and your userid(email id) and password(API token) using your credentials to populate your account with 100 tickets
+
+https://yoursubdomain.zendesk.com/api/v2/imports/tickets/create_many.json
+
 Keep your Subdomain Name,Email id for zendesk account and API token handy.
 
 API token can be obtained from the Support admin interface at Admin > Channels > API.
